@@ -66,10 +66,10 @@ console.log(players);//打印所有玩家牌组
 /*var audio = new Audio('path_to_audio_file.mp3');
 audio.play();*/
 
-const divbody = document.createElement('div');
-divbody.id = 'divbody';
-divbody.className = 'myClass';
-document.body.appendChild(divbody);// 将div插入到body元素内
+const uno = document.createElement('div');
+uno.id = 'uno';
+uno.className = 'uno';
+document.body.appendChild(uno);// 将div插入到body元素内
 
 //引入css
 const linkElement = document.createElement('link');

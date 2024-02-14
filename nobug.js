@@ -43,7 +43,7 @@ function generateUnoDeck() {
   return deck;
 }
 
-const unoDeck = generateUnoDeck();
+let unoDeck = generateUnoDeck();
 
 const numplay = 2; // 设置玩家数量
 const players = [];

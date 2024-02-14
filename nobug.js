@@ -59,7 +59,7 @@ function dealCards(deck, players, numCards) {
   }
 }//进入牌数，进入玩家数，一人一张牌(j跑一遍)，退出玩家数i++，进入玩家数,一人一张牌(j跑一遍)，退出玩家数i++，进入玩家数……
 
-dealCards(unoDeck, players, 12);//牌堆，所有玩家牌组，发牌数量
+dealCards(unoDeck, players, 8);//牌堆，所有玩家牌组，发牌数量
 
 console.log(players);//打印所有玩家牌组
 

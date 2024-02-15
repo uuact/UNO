@@ -1,9 +1,10 @@
 /*主弹窗*/
 div.uno {
-  display: flex;
-  justify-content: center; /* 水平居中 */
-  align-items: center; /* 垂直居中 */
   width: 70%;
   height: 50%;
+  position: absolute; /* 使用绝对定位 */
+  top: 50%; /* 从顶部的中心位置开始 */
+  left: 50%; /* 从左侧的中心位置开始 */
+  transform: translate(-50%, -50%); /* 使用transform属性进行偏移 */
   background-color: #fff;
  }

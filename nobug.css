@@ -1,10 +1,22 @@
-/*主弹窗*/
+/*主窗口*/
 div.uno {
-  width: 70%;
-  height: 50%;
-  position: absolute; /* 使用绝对定位 */
-  top: 50%; /* 从顶部的中心位置开始 */
-  left: 50%; /* 从左侧的中心位置开始 */
-  transform: translate(-50%, -50%); /* 使用transform属性进行偏移 */
-  background-color: #fff;
+  width: 70%;/*大小*/
+  height: 60%;
+  position: absolute;/*居中*/
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;/*样式*/
+  border-radius: 10px; 
+  border: 1px solid lightgray;
  }
+
+ div.uno::before {/*伪元素置顶*/
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}

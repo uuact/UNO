@@ -6,17 +6,8 @@ div.uno {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 9999; /*置顶*/
   background-color: #fff;/*样式*/
   border-radius: 10px; 
   border: 1px solid lightgray;
  }
-
- div.uno::before {/*伪元素置顶*/
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: -1;
-}

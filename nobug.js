@@ -74,4 +74,5 @@ document.body.appendChild(uno);// 将div插入到body元素内
 //引入css
 const linkElement = document.createElement('link');
 linkElement.href = 'https://uuact.github.io/bookmarklet/nobug.css';
+linkElement.rel = "stylesheet";
 document.head.appendChild(linkElement);

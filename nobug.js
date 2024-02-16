@@ -43,7 +43,7 @@ function generateUnoDeck() {
   return deck;
 }
 
-let unoDeck = generateUnoDeck(); //为了防止作弊，也许该用const?
+const unoDeck = generateUnoDeck();
 
 const numplay = 2; // 设置玩家数量
 const players = [];

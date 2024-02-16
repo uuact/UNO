@@ -6,8 +6,37 @@ div.uno {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 9999; /*置顶*/
-  background-color: #fff;/*样式*/
+  z-index: 9999;/*置顶*/
+  background-color: white;/*样式*/
   border-radius: 10px; 
   border: 1px solid lightgray;
  }
+
+/*玩家*/
+div.me {
+  position: absolute;
+  bottom: 0;
+}
+
+/*卡牌颜色，因为直接用red  yellow blue green并不好看*/
+div.color-red {
+  background-color: salmon;
+}
+div.color-yellow {
+  background-color: gold;
+}
+div.color-green {
+  background-color: yellowgreen;
+}
+div.color-blue {
+  background-color: aqua;
+}
+div.color-undefined { /*万能和+4我没设置颜色*/
+  background-color: antiquewhite;
+}
+
+/*卡牌通用样式*/
+div.universal {
+  padding: 14px 16px;
+  float: left;
+}

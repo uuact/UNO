@@ -43,7 +43,7 @@ function generateUnoDeck() {
   return deck;
 }
 
-let unoDeck = generateUnoDeck();
+let unoDeck = generateUnoDeck(); //为了防止作弊，也许该用const?
 
 const numplay = 2; // 设置玩家数量
 const players = [];
@@ -61,18 +61,33 @@ function dealCards(deck, players, numCards) {
 
 dealCards(unoDeck, players, 8);//牌堆，所有玩家牌组，发牌数量
 
-console.log(players);//打印所有玩家牌组
-
-/*var audio = new Audio('path_to_audio_file.mp3');
-audio.play();*/
-
-const uno = document.createElement('div');
-uno.id = 'uno';
-uno.className = 'uno';
-document.body.appendChild(uno);// 将div插入到body元素内
-
 //引入css
 const linkElement = document.createElement('link');
 linkElement.href = 'https://uuact.github.io/bookmarklet/nobug.css';
 linkElement.rel = "stylesheet";
 document.head.appendChild(linkElement);
+
+const uno = document.createElement('div');
+uno.id = 'uno';
+uno.className = 'uno';
+document.body.appendChild(uno);// 将主体div插入到body元素内
+const unoDiv = document.getElementById('uno');//方便引用的定义
+
+const me = document.createElement('div');
+me.id = "player" + Iis;//玩家号数
+me.className = 'me';
+unoDiv.appendChild(me); // 将本玩家div插入到主体div元素内
+
+for (var i=0; i<players[Iis].length; i++){//遍历我的牌组，增加css样式
+  const deckdiv = document.createElement('div')
+  deckdiv.id = "deck" + i;
+  deckdiv.className = `color-${players[Iis][i].color} universal`;//颜色样式和通用样式
+  deckdiv.onclick = choose;
+  deckdiv.textContent = players[Iis][i].value;
+  me.appendChild(deckdiv);
+}
+
+/*选牌*/
+function choose() {
+
+};

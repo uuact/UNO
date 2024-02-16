@@ -46,6 +46,7 @@ function generateUnoDeck() {
 const unoDeck = generateUnoDeck();
 
 const numplay = 2; // 设置玩家数量
+const Iis = 0; //当前我为玩家几，为了方便数组从零计数
 const players = [];
 for (let i = 0; i < numplay; i++) {	players.push([]); }	// 几个玩家几组牌
 

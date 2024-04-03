@@ -1,0 +1,95 @@
+/*设置*/
+.设置 {
+  position: absolute;
+  width:98%;
+  height:97%;
+  z-index: 9999;
+  border:1px solid lightgray;
+  background-color: white;/*样式*/
+}
+
+/*放边上有点难受，弄个居中*/
+.nnn {
+  width: 70%;/*大小*/
+  height: 60%;
+  position: absolute;/*居中*/
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;/*样式*/
+  border-radius: 10px; 
+}
+
+fieldset {
+  width: 250px;
+}
+
+/*主窗口*/
+.uno {
+  width: 70%;/*大小*/
+  height: 60%;
+  position: absolute;/*居中*/
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;/*样式*/
+  border-radius: 10px; 
+  border: 1px solid lightgray;
+}
+
+/*玩家*/
+.me {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: flex-start; /* 垂直顶部对齐 */
+  flex-wrap: wrap; /* 换行 */
+}
+
+/*卡牌通用样式 后代选择器*/
+.me *{
+  padding: 14px 16px;
+  border-radius: 0%;
+}
+
+
+/*卡牌颜色，因为直接用red  yellow blue green并不好看*/
+.红 {
+  background-color: salmon;
+}
+.黄 {
+  background-color: gold;
+}
+.绿 {
+  background-color: yellowgreen;
+}
+.蓝 {
+  background-color: aqua;
+}
+.万能 { /*万能和+4我没设置颜色*/
+  background-color: violet;
+}
+
+/*居中当前牌*/
+.adeck {
+  text-align: center;
+}
+
+/*出牌*/
+.button {
+  position: absolute;
+  padding: 10px 10px;
+  background-color: aliceblue;
+  border-radius: 8px;
+  bottom: 0;
+  right: 0;
+}
+
+/*我不出牌*/
+.buttonNO {
+  position: absolute;
+  padding: 10px 10px;
+  background-color: aliceblue;
+  border-radius: 8px;
+  bottom: 0;
+  left: 0;
+}

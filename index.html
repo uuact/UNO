@@ -1,11 +1,70 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>青雀的书签小工具~</title>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://uuact.github.io/uno/a.css">
+</head>
 
-  <body>
-  <p>等着！肯定做完！</p>
-  </body>
-</html>
+<body>
+ <div id='设置' class='设置'>
+    <div class="nnn">
+
+      <p>玩家数量
+        <input type="text" id="inputField" value="2">
+        <button onclick="IhaveName()">起个名？</button>
+      </p>
+
+      <p>手牌数量 <input type="text" id="inputField2" value="8"></p>
+
+      <fieldset>
+        <legend>将要使用的牌：</legend>
+      
+        <div>
+          <input id="inputC1" type="checkbox" checked />
+          <label for="scales">+4 万能</label>
+        </div>
+      
+        <div>
+          <input id="inputC2" type="checkbox" checked/>
+          <label for="horns">+2 反转 禁止</label>
+        </div>
+
+        <div>
+          <input id="inputC3" type="checkbox" checked/>
+          <label for="horns">数字</label>
+        </div>
+      </fieldset>
+      
+      <button onclick="play()">开始游戏</button>
+
+    </div>
+ </div>
+</body>
+
+<script>
+  let sz =  document.getElementById('设置');
+  let numplay;
+  let numdeck;
+  let C1;
+  let C2;
+  let C3;
+
+  function play() {
+    numplay = document.getElementById("inputField").value; // 设置玩家数量
+    numdeck = document.getElementById("inputField2").value; // 设置手牌数量
+    C1 = document.getElementById('inputC1');//万能和+4
+    C2 = document.getElementById('inputC2');//反转+2和禁止
+    C3 = document.getElementById('inputC3');//数字
+
+    while (sz.firstChild) {//清空设置div内的所有元素
+      sz.removeChild(sz.firstChild);
+    }
+    sz.remove()//删除设置div
+
+    let scriptElement = document.createElement('script');//插入游戏本体
+    scriptElement.src = 'https://uuact.github.io/uno/a.js';
+    document.head.appendChild(scriptElement);
+  }
+
+  function IhaveName() {
+    alert('概念先行，还没做')
+  }
+</script>

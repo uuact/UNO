@@ -138,17 +138,22 @@ let chooseDeck = [];//临时牌组
 let n = a;
 
 let BBB;
-function bt(www,yyy) {//为了方便数组读取，真是难为我的小脑子了
-  BBB = www + steer;
-  if (BBB <= 0 && steer == -1 && yyy == 1) {                      //用于数组
+function bt(www) {//为了方便数组读取，真是难为我的小脑子了
+  BBB =parseInt( www ) + steer; //parseInt解决了一个奇妙的特性
+  if (BBB < 0 && steer == -1) {                      //用于数组
     BBB = numplay -1; // 如果位置小于0，就给到最后一个玩家
-  } else if (BBB >= numplay && steer == 1 && yyy == 1) {
+  } else if (BBB >= numplay && steer == 1) {
     BBB = 0; // 如果位置超出了玩家总数，就给到第一个玩家
-  } else if (BBB > numplay && steer == 1 && yyy == 0) {          //显示的名称
-    BBB = 1;
-  } else if (BBB <= 1 && steer == -1 && yyy == 0) {
-    BBB = numplay;
   }
+}
+
+let colors;
+let randomIndex;
+let randomColor;
+function color(){
+colors = ["salmon", "gold", "yellowgreen", "orange", "violet"];
+randomIndex = Math.floor(Math.random() * colors.length);
+randomColor = colors[randomIndex]; // 获取随机颜色
 }
 
 /*选牌*/  // <(//v//)>脑容溢出，已傻
@@ -208,15 +213,15 @@ let AAA;//这很难解释
 let LLL;//这很难解释
 //let who;//谁被禁
 function ok() {
-  bt(Iis,0);//嘿嘿嘿真好用
+  BBB = Iis + 1;
   console.log('玩家'+ BBB +'出了：' + chooseDeck.length +'张卡牌', chooseDeck);
 
   if (chooseDeck.length !==0) {
     let o = 0;
     LLL = BBB;//玩家的显示号数
-    bt(Iis,1);
+    bt(Iis);
     AAA = BBB;//下一个玩家的真实号
-    bt(BBB,0);//下一个玩家的显示号数
+    BBB = AAA + 1;//下一个玩家的显示号数
 
     for (o = 0;o<chooseDeck.length ; o++) {
       let d = chooseDeck[o].color;
@@ -227,8 +232,25 @@ function ok() {
       console.log('玩家',LLL,d,b,players[Iis])
 
       if (players[Iis].length == 0){
-        alert('玩家'+ LLL +'，你赢了！')
-        location.reload();//刷新页面
+        sz.style.width = 98+'%';
+        sz.style.height = 97+'%';
+        let qqq = document.createElement('div');
+        qqq.className = 'nnn';
+        sz.appendChild(qqq);
+        const ppp = document.createElement('h1');
+
+        setInterval(function() {
+          color();
+          ppp.remove();
+          ppp.textContent = `玩家${LLL}获得了胜利！`;
+          ppp.style.color = randomColor;
+          qqq.appendChild(ppp);
+          console.log(`%c玩家${LLL}获得了胜利！`, `font-weight: bold; font-size: 50px; color: ${randomColor}`);
+        },500)
+
+        setTimeout(function() {
+          location.reload();
+        },5000)
       }else{
 
         if (b == '万能+4'){
@@ -291,9 +313,9 @@ function next() {
 
 /*换人*/
 function nextplayer() {
-  bt(Iis,1);//下一个玩家的真实号
-  Iis = BBB;  
-  bt(BBB,0);//下一个玩家的显示号
+  bt(Iis);//下一个玩家的真实号
+  Iis = BBB;
+  BBB = Iis + 1;//下一个玩家的显示号数，因为Iis+1必然等于
 
   let w = whoq[Iis].indexOf(0);
   if (w == -1){
@@ -301,12 +323,34 @@ function nextplayer() {
     console.log('玩家'+ BBB +'需要等待'+ q +'回合才可以出牌' );
     q--;
     whoq[Iis] = [q];
-    
-    bt(Iis,1);
-    Iis = BBB;  
-    bt(BBB,0);
+
+    bt(Iis);
+    Iis = BBB;
+    BBB = Iis + 1;
   }
     
   bbb();//更新用户卡组显示
   console.warn('轮到玩家' + BBB);
+
+  sz.style.width = 98+'%';
+  sz.style.height = 97+'%';
+
+  color();
+  let qqq = document.createElement('div');
+  qqq.className = 'nnn';
+  sz.appendChild(qqq);
+
+  const ppp = document.createElement('h1');
+  ppp.textContent = `轮到玩家 ${BBB}`;
+  ppp.style.color = randomColor;
+  qqq.appendChild(ppp);
+
+  setTimeout(function() {
+    while (sz.firstChild) {//清空设置div内的所有元素
+      sz.removeChild(sz.firstChild);
+    }
+    sz.style.width = 0+'%';
+    sz.style.height = 0+'%';
+  }, 1000);
+
 }

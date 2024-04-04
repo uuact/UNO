@@ -58,7 +58,9 @@
     while (sz.firstChild) {//清空设置div内的所有元素
       sz.removeChild(sz.firstChild);
     }
-    sz.remove()//删除设置div
+    
+    sz.style.width = 0+'%';
+    sz.style.height = 0+'%';
 
     let scriptElement = document.createElement('script');//插入游戏本体
     scriptElement.src = './a.js';

@@ -214,7 +214,7 @@ let LLL;//这很难解释
 //let who;//谁被禁
 function ok() {
   BBB = Iis + 1;
-  console.log('玩家'+ BBB +'出了：' + chooseDeck.length +'张卡牌', chooseDeck);
+  console.log('玩家'+ BBB +'出了：' + chooseDeck.length +'张卡牌');
 
   if (chooseDeck.length !==0) {
     let o = 0;
